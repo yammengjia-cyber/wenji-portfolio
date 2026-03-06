@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #C8963E;
+  --primary-dark: #A67B32;
+  --primary-light: #F5E6C8;
+  --cream: #FDF8F0;
+  --cream-dark: #F5EDDF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Noto Sans SC', 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--cream);
+  color: #2D2D2D;
+}
+
+@layer components {
+  .phone-container {
+    @apply relative mx-auto bg-cream;
+    width: 100%;
+    max-width: 430px;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md rounded-2xl shadow-sm;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #C8963E 0%, #E5C285 50%, #C8963E 100%);
+  }
+
+  .gold-button {
+    @apply px-6 py-3 rounded-full font-medium text-white transition-all duration-300;
+    background: linear-gradient(135deg, #C8963E 0%, #D4A95C 100%);
+    box-shadow: 0 4px 15px rgba(200, 150, 62, 0.3);
+  }
+
+  .gold-button:hover {
+    box-shadow: 0 6px 20px rgba(200, 150, 62, 0.45);
+    transform: translateY(-1px);
+  }
+
+  .gold-button:active {
+    transform: translateY(0);
+  }
+
+  .section-title {
+    @apply text-2xl font-bold;
+    color: #51463E;
+  }
+
+  .page-padding {
+    @apply px-5 py-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+input[type="text"],
+input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+@keyframes toastIn {
+  0% { opacity: 0; transform: translateY(-20px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-toastIn {
+  animation: toastIn 0.3s ease-out forwards;
+}
